@@ -19,5 +19,4 @@ public class SearchResultsPage extends AbstractPage {
         waitForElementVisibility(textSearchResultsCategory.get(0));
         return textSearchResultsCategory.get(1).getText();
     }
-
 }

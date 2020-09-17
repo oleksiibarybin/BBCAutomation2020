@@ -50,20 +50,18 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
                 .clickOnLinkShareCoronavirusStory();
     }
 
-    public void submitCoronaStorySubmissionForm(HashMap<Field,String> fields, HashMap<Checkbox, Boolean> checkboxes) {
+    public void submitCoronaStorySubmissionForm(HashMap<Field, String> fields, HashMap<Checkbox, Boolean> checkboxes) {
         waitForElementVisibility(blockStorySubmissionForm);
         setFieldsCoronaVirusSubmissionForm(fields, checkboxes);
         clickOnButtonSubmitCoronaStorySubmissionForm();
     }
 
-    public String getTextErrorCoronaStorySubmissionFrom(){
+    public String getTextErrorCoronaStorySubmissionFrom() {
         waitForElementVisibility(textErrorCoronaStorySubmissionFrom);
         return textErrorCoronaStorySubmissionFrom.getText();
     }
 
-
-
-    private void setFieldsCoronaVirusSubmissionForm (HashMap<Field,String> fields, HashMap<Checkbox, Boolean> checkboxes) {
+    private void setFieldsCoronaVirusSubmissionForm(HashMap<Field, String> fields, HashMap<Checkbox, Boolean> checkboxes) {
         for (Field key : fields.keySet()) {
             switch (key) {
                 case STORY:
@@ -86,7 +84,7 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
         }
     }
 
-    private void clickOnButtonSubmitCoronaStorySubmissionForm(){
+    private void clickOnButtonSubmitCoronaStorySubmissionForm() {
         buttonSubmitCoronaStorySubmissionForm.click();
     }
 

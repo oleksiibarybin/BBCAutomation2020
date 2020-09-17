@@ -10,7 +10,8 @@ public class DriverManager {
     private static WebDriver driver;
     private static String driverType = "";
 
-    private DriverManager() {}
+    private DriverManager() {
+    }
 
     public static WebDriver getDriver(String driverName) {
         driverType = driverName;
@@ -31,7 +32,7 @@ public class DriverManager {
         return driver;
     }
 
-    public static WebDriver getDriver(){
+    public static WebDriver getDriver() {
         return driver == null ? getDriver(driverType) : driver;
     }
 

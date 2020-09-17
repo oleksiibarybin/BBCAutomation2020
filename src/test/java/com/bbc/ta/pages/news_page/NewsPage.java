@@ -25,7 +25,7 @@ public class NewsPage extends AbstractPage {
     private WebElement blockFirstSecondaryNews;
 
 
-    public NewsPage (WebDriver driver) {
+    public NewsPage(WebDriver driver) {
         super(driver);
     }
 
@@ -42,10 +42,8 @@ public class NewsPage extends AbstractPage {
         return secondaryTitlesText;
     }
 
-    public String getTextNewsHeadLineLocationCategory(){
+    public String getTextNewsHeadLineLocationCategory() {
         waitForElementVisibility(textNewsHeadLineLocationCategory);
         return textNewsHeadLineLocationCategory.getText();
     }
-
-
 }

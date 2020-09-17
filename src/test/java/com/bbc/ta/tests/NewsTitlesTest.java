@@ -43,7 +43,7 @@ public class NewsTitlesTest extends BaseTest {
 
     @Test
     public void checkSearchResultsAgainstNewsHeadlineArticleCategoryLink() {
-        String expectedFirsItemRegionMetadata = "CBBC";
+        String expectedFirsItemRegionMetadata = "World";
 
         String searchResultsFirsItemRegionMetadata =
                 getMainHorizontalMenu()
