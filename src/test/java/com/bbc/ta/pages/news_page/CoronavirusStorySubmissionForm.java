@@ -4,6 +4,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 
@@ -50,7 +51,7 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
                 .clickOnLinkShareCoronavirusStory();
     }
 
-    public void submitCoronaStorySubmissionForm(HashMap<Field, String> fields, HashMap<Checkbox, Boolean> checkboxes) {
+    public void submitCoronaStorySubmissionForm(HashMap<Field, String> fields, ArrayList<Checkbox> checkboxes) {
         waitForElementVisibility(blockStorySubmissionForm);
         setFieldsCoronaVirusSubmissionForm(fields, checkboxes);
         clickOnButtonSubmitCoronaStorySubmissionForm();
@@ -61,7 +62,7 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
         return textErrorCoronaStorySubmissionFrom.getText();
     }
 
-    private void setFieldsCoronaVirusSubmissionForm(HashMap<Field, String> fields, HashMap<Checkbox, Boolean> checkboxes) {
+    private void setFieldsCoronaVirusSubmissionForm(HashMap<Field, String> fields, ArrayList<Checkbox> checkboxes) {
         for (Field key : fields.keySet()) {
             switch (key) {
                 case STORY:
@@ -72,7 +73,7 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
                     break;
             }
         }
-        for (Checkbox key : checkboxes.keySet()) {
+        for (Checkbox key : checkboxes) {
             switch (key) {
                 case I_AM_OVER_SIXTEEN:
                     setCheckboxChecked(checkBoxesCoronaStorySubmissionForm.get(1));
