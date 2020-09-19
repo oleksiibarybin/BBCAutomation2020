@@ -17,14 +17,14 @@ public class SignInPopUp extends HomePage {
     }
 
     public void clickOnSignInLaterButton() {
+        waitForPopUpLoad(driver);
         buttonSignInLater.click();
     }
 
     public void registrationPopUpHandler() {
         driver.get(BASE_URL);
         new MainHorizontalMenu(driver).clickOnNewsPageLink();
-        new WebDriverWait(driver, 30).until(
-                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
+        waitForPopUpLoad(driver);
         new SignInPopUp(driver).clickOnSignInLaterButton();
     }
 

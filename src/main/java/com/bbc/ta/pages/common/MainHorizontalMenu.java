@@ -27,10 +27,24 @@ public class MainHorizontalMenu extends HomePage {
         return new SearchResultsPage(driver);
     }
 
+    public WebElement menuCategory(String category) {
+        switch (category) {
+            case "news": {
+                return linkNewsCategory;
+            }
+        }
+        return null;
+    }
+
     public NewsPage clickOnNewsPageLink() {
         waitForElementVisibility(linkNewsCategory);
         linkNewsCategory.click();
         return new NewsPage(driver);
+    }
+
+    public void clickOnNewsPage() {
+        waitForElementVisibility(linkNewsCategory);
+        linkNewsCategory.click();
     }
 
     public void setInputSearch(String text) {

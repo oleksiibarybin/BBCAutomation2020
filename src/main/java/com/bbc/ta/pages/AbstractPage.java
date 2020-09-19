@@ -2,6 +2,7 @@ package com.bbc.ta.pages;
 
 import com.bbc.ta.pages.common.MainHorizontalMenu;
 import com.bbc.ta.pages.news_page.NewsHorizontalMenu;
+import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.PageFactory;
@@ -24,6 +25,11 @@ public abstract class AbstractPage {
     public void setCheckboxChecked(WebElement element) {
         if (!element.isSelected())
             element.click();
+    }
+
+    public void waitForPopUpLoad(WebDriver driver) {
+        new WebDriverWait(driver, 30).until(
+                webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
     }
 
     public NewsHorizontalMenu getNewsHorizontalMenu() {
