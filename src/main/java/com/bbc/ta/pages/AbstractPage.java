@@ -1,7 +1,5 @@
 package com.bbc.ta.pages;
 
-import com.bbc.ta.pages.common.MainHorizontalMenu;
-import com.bbc.ta.pages.news_page.NewsHorizontalMenu;
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -17,7 +15,7 @@ public abstract class AbstractPage {
         PageFactory.initElements(driver, this);
     }
 
-    public void waitForElementVisibility(WebElement element){
+    public void waitForElementVisibility(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(element));
     }
@@ -30,13 +28,5 @@ public abstract class AbstractPage {
     public void waitForPopUpLoad(WebDriver driver) {
         new WebDriverWait(driver, 30).until(
                 webDriver -> ((JavascriptExecutor) webDriver).executeScript("return document.readyState").equals("complete"));
-    }
-
-    public NewsHorizontalMenu getNewsHorizontalMenu() {
-        return new NewsHorizontalMenu(driver);
-    }
-
-    public MainHorizontalMenu getMainHorizontalMenu() {
-        return new MainHorizontalMenu(driver);
     }
 }

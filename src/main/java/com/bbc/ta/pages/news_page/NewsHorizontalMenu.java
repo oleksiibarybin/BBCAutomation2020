@@ -13,9 +13,13 @@ public class NewsHorizontalMenu extends NewsPage {
         super(driver);
     }
 
-    public CoronaVirusPage clickOnCoronavirusPageLink() {
-        waitForElementVisibility(coronavirusCategory);
-        coronavirusCategory.click();
-        return new CoronaVirusPage(driver);
+    public WebElement getMenuCategoryInNewsPageMenu(String category) {
+        switch (category) {
+            case "coronavirus": {
+                return coronavirusCategory;
+            }
+        }
+        return null;
     }
+
 }

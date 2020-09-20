@@ -10,16 +10,20 @@ import java.util.List;
 
 public class NewsPage extends AbstractPage {
 
-    private final String BASE_URL = "https://www.bbc.com/news";
-
     @FindBy(xpath = "//h3[contains(@class,'gel-paragon-bold')]")
     private WebElement textNewsHeadLineTitle;
 
     @FindBy(xpath = "//h3[contains(@class,'gel-pica-bold')]")
     private List<WebElement> textSecondaryTitles;
 
+    @FindBy(xpath = "//a[@aria-label]")
+    private WebElement linkNewsHeadLineArticleCategory;
+
     @FindBy(xpath = "//a[@aria-label]/span")
-    private WebElement textNewsHeadLineLocationCategory;
+    private WebElement textNewsHeadLineArticleCategory;
+
+    @FindBy(xpath = "//div[@aria-label='Featured Contents']//a[@aria-label]/span")
+    private WebElement textCategoryHeadLineArticleCategory;
 
     @FindBy(xpath = "//div[@data-entityid='container-top-stories#2']")
     private WebElement blockFirstSecondaryNews;
@@ -42,8 +46,18 @@ public class NewsPage extends AbstractPage {
         return secondaryTitlesText;
     }
 
-    public String getTextNewsHeadLineLocationCategory() {
-        waitForElementVisibility(textNewsHeadLineLocationCategory);
-        return textNewsHeadLineLocationCategory.getText();
+    public void clickOnLinkNewsHeadLineCategory() {
+        waitForElementVisibility(linkNewsHeadLineArticleCategory);
+        linkNewsHeadLineArticleCategory.click();
+    }
+
+    public String getTextNewsHeadLineArticleCategory() {
+        waitForElementVisibility(textNewsHeadLineArticleCategory);
+        return textNewsHeadLineArticleCategory.getText();
+    }
+
+    public String getTextCategoryHeadLineArticleCategory() {
+        waitForElementVisibility(textCategoryHeadLineArticleCategory);
+        return textCategoryHeadLineArticleCategory.getText();
     }
 }

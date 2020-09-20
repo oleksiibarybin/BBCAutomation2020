@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 public class CoronaVirusPage extends AbstractPage {
 
     @FindBy(xpath = "//span[text()='Your Coronavirus Stories']/ancestor::a")
-    private WebElement linkCoronavirusStory;
+    private WebElement linkYourCoronavirusStories;
 
     @FindBy(xpath = "//h3[contains(text(),'How to share')]//ancestor::a")
     private WebElement linkShareCoronavirusStory;
@@ -17,10 +17,9 @@ public class CoronaVirusPage extends AbstractPage {
         super(driver);
     }
 
-    public CoronaVirusPage clickOnLinkCoronavirusStory() {
-        waitForElementVisibility(linkCoronavirusStory);
-        linkCoronavirusStory.click();
-        return new CoronaVirusPage(driver);
+    public void clickOnLinkYourCoronavirusStories() {
+        waitForElementVisibility(linkYourCoronavirusStories);
+        linkYourCoronavirusStories.click();
     }
 
     public void clickOnLinkShareCoronavirusStory() {

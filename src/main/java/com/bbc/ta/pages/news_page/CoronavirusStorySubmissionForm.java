@@ -4,21 +4,9 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-import java.util.ArrayList;
-import java.util.HashMap;
 import java.util.List;
 
 public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
-
-    public enum Field {
-        STORY,
-        NAME
-    }
-
-    public enum Checkbox {
-        I_AM_OVER_SIXTEEN,
-        I_ACCEPT
-    }
 
     @FindBy(xpath = "//div[@class='embed-content-container']")
     private WebElement blockStorySubmissionForm;
@@ -42,51 +30,36 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
         super(driver);
     }
 
-    public void navigateToSubmissionForm() {
-        getMainHorizontalMenu()
-                .clickOnNewsPageLink()
-                .getNewsHorizontalMenu()
-                .clickOnCoronavirusPageLink()
-                .clickOnLinkCoronavirusStory()
-                .clickOnLinkShareCoronavirusStory();
+    public WebElement getFieldInCoronaStorySubmissionForm(String fieldName) {
+        waitForElementVisibility(blockStorySubmissionForm);
+        switch (fieldName) {
+            case "story": {
+                return inputTextareaStoryCoronaStorySubmissionForm;
+            }
+            case "name": {
+                return inputNameCoronaStorySubmissionForm;
+            }
+        }
+        return null;
     }
 
-    public void submitCoronaStorySubmissionForm(HashMap<Field, String> fields, ArrayList<Checkbox> checkboxes) {
-        waitForElementVisibility(blockStorySubmissionForm);
-        setFieldsCoronaVirusSubmissionForm(fields, checkboxes);
-        clickOnButtonSubmitCoronaStorySubmissionForm();
+    public void checkCheckboxInCoronaStorySubmissionForm(String checkbox) {
+        switch (checkbox) {
+            case "i_am_over_sixteen":
+                setCheckboxChecked(checkBoxesCoronaStorySubmissionForm.get(1));
+                break;
+            case "i_accept":
+                setCheckboxChecked(checkBoxesCoronaStorySubmissionForm.get(2));
+                break;
+        }
+    }
+
+    public WebElement getButtonSubmitCoronaStorySubmissionForm() {
+        return buttonSubmitCoronaStorySubmissionForm;
     }
 
     public String getTextErrorCoronaStorySubmissionFrom() {
         waitForElementVisibility(textErrorCoronaStorySubmissionFrom);
         return textErrorCoronaStorySubmissionFrom.getText();
     }
-
-    private void setFieldsCoronaVirusSubmissionForm(HashMap<Field, String> fields, ArrayList<Checkbox> checkboxes) {
-        for (Field key : fields.keySet()) {
-            switch (key) {
-                case STORY:
-                    inputTextareaStoryCoronaStorySubmissionForm.sendKeys(fields.get(key));
-                    break;
-                case NAME:
-                    inputNameCoronaStorySubmissionForm.sendKeys(fields.get(key));
-                    break;
-            }
-        }
-        for (Checkbox key : checkboxes) {
-            switch (key) {
-                case I_AM_OVER_SIXTEEN:
-                    setCheckboxChecked(checkBoxesCoronaStorySubmissionForm.get(1));
-                    break;
-                case I_ACCEPT:
-                    setCheckboxChecked(checkBoxesCoronaStorySubmissionForm.get(2));
-                    break;
-            }
-        }
-    }
-
-    private void clickOnButtonSubmitCoronaStorySubmissionForm() {
-        buttonSubmitCoronaStorySubmissionForm.click();
-    }
-
 }

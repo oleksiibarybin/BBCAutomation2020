@@ -1,9 +1,6 @@
 package com.bbc.ta.pages.common;
 
 import com.bbc.ta.pages.HomePage;
-import com.bbc.ta.pages.SearchResultsPage;
-import com.bbc.ta.pages.news_page.NewsPage;
-import org.openqa.selenium.Keys;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -22,32 +19,12 @@ public class MainHorizontalMenu extends HomePage {
         super(driver);
     }
 
-    public SearchResultsPage findTextBySearch(String text) {
-        setInputSearch(text);
-        return new SearchResultsPage(driver);
-    }
-
-    public WebElement menuCategory(String category) {
+    public WebElement getMainMenuCategory(String category) {
         switch (category) {
             case "news": {
                 return linkNewsCategory;
             }
         }
         return null;
-    }
-
-    public NewsPage clickOnNewsPageLink() {
-        waitForElementVisibility(linkNewsCategory);
-        linkNewsCategory.click();
-        return new NewsPage(driver);
-    }
-
-    public void clickOnNewsPage() {
-        waitForElementVisibility(linkNewsCategory);
-        linkNewsCategory.click();
-    }
-
-    public void setInputSearch(String text) {
-        inputSearch.sendKeys(text, Keys.ENTER);
     }
 }

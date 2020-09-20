@@ -1,4 +1,4 @@
-package com.bbc.ta.tests.steps;
+package com.bbc.ta.tests.steps.common;
 
 import io.cucumber.java.en.Given;
 
