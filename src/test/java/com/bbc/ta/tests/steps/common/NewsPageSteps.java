@@ -6,36 +6,41 @@ import io.cucumber.java.en.When;
 import static org.assertj.core.api.Assertions.assertThat;
 
 
-public class NewsPageSteps extends BaseSteps {
-
-    private String newsHeadLineArticleCategory;
+public class NewsPageSteps {
 
     @When("user clicks on {string} category in mews page horizontal menu")
     public void clickOnCoronaVitusCategory(String category) {
-        getNewsHorizontalMenu().getMenuCategoryInNewsPageMenu(category).click();
+        PageFactory
+                .getNewsHorizontalMenu()
+                .clickOnMenuCategoryInNewsPageMenu(category);
     }
 
     @When("user clicks on Your coronavirus Stories link")
     public void clicksOnYourCoronavirusStoriesLink() {
-        getCoronaVirusPage().clickOnLinkYourCoronavirusStories();
+        PageFactory
+                .getCoronaVirusPage()
+                .clickOnLinkYourCoronavirusStories();
     }
 
     @When("user clicks on How to share with BBC link")
     public void clicksOnHowToShareWithBBCLink() {
-        getCoronaVirusPage().clickOnLinkShareCoronavirusStory();
+        PageFactory
+                .getCoronaVirusPage()
+                .clickOnLinkShareCoronavirusStory();
     }
 
     @When("clicks on news headline article category link")
     public void clickOnNewsHeadlineArticleCategoryLink() {
-        newsHeadLineArticleCategory = getNewsPage().getTextNewsHeadLineArticleCategory();
-        getNewsPage().clickOnLinkNewsHeadLineCategory();
+        PageFactory
+                .getNewsPage()
+                .clickOnLinkNewsHeadLineCategory();
     }
 
     @Then("headline article category on category page equal to headline article category on news page")
     public void checkHeadlineArticleCategoryOnCategoryPageEqualToHeadlineArticleCategoryOnNewsPage() {
-        assertThat(getNewsPage().getTextCategoryHeadLineArticleCategory())
+        String newsHeadLineArticleCategory = PageFactory.getNewsPage().getTextNewsHeadLineArticleCategory();
+        assertThat(PageFactory.getNewsPage().getTextCategoryHeadLineArticleCategory())
                 .as("Text of headline article category on category page is NOT equal to text headline article category on news page")
                 .isEqualTo(newsHeadLineArticleCategory);
-        newsHeadLineArticleCategory = null;
     }
 }

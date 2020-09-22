@@ -18,4 +18,3 @@ Feature: As an unregistered user I want to get up-to-date news so that I will be
       |Madrid virus lockdowns to hit over 850,000 people|
       |Animals 'dying of hunger and thirst' in Pantanal fires|
       |Two shot dead and 14 hurt in Rochester, New York   |
-

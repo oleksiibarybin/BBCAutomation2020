@@ -1,5 +1,6 @@
 package com.bbc.ta.pages.news_page;
 
+import org.apache.commons.lang3.NotImplementedException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
@@ -13,13 +14,14 @@ public class NewsHorizontalMenu extends NewsPage {
         super(driver);
     }
 
-    public WebElement getMenuCategoryInNewsPageMenu(String category) {
+    public void clickOnMenuCategoryInNewsPageMenu(String category) {
         switch (category) {
             case "coronavirus": {
-                return coronavirusCategory;
+                coronavirusCategory.click();
+                break;
             }
+            default: throw new NotImplementedException(String.format("Category %s is not implemented", category));
         }
-        return null;
     }
 
 }

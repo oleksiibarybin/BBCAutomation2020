@@ -17,8 +17,8 @@ Feature: As an unregistered user I want to publish my coronavirus story so that 
     Then below form element error message "<message>" is shown
 
     Examples:
-      | story      | name    | i_am_over_sixteen | i_accept | message             |
-      |            | Oleksii | i_am_over_sixteen | i_accept | can't be blank      |
-      | Real story |         | i_am_over_sixteen | i_accept | Name can't be blank |
-      | Real story | Oleksii |                   | i_accept | must be accepted    |
-      | Real story | Oleksii | i_am_over_sixteen |          | must be accepted    |
+      | story      | name    | i_am_over_sixteen | i_accept       | message             |
+      |            | Oleksii | i_am_over_sixteen | i_accept       | can't be blank      |
+      | Real story |         | i_am_over_sixteen | i_accept       | Name can't be blank |
+      | Real story | Oleksii | is_not_checked    | i_accept       | must be accepted    |
+      | Real story | Oleksii | i_am_over_sixteen | is_not_checked | must be accepted    |
