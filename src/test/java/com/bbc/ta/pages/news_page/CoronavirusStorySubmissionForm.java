@@ -7,18 +7,9 @@ import org.openqa.selenium.support.FindBy;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
-
-    public enum Field {
-        STORY,
-        NAME
-    }
-
-    public enum Checkbox {
-        I_AM_OVER_SIXTEEN,
-        I_ACCEPT
-    }
 
     @FindBy(xpath = "//div[@class='embed-content-container']")
     private WebElement blockStorySubmissionForm;
@@ -51,7 +42,7 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
                 .clickOnLinkShareCoronavirusStory();
     }
 
-    public void submitCoronaStorySubmissionForm(HashMap<Field, String> fields, ArrayList<Checkbox> checkboxes) {
+    public void submitCoronaStorySubmissionForm(Map<Field, String> fields, List<Checkbox> checkboxes) {
         waitForElementVisibility(blockStorySubmissionForm);
         setFieldsCoronaVirusSubmissionForm(fields, checkboxes);
         clickOnButtonSubmitCoronaStorySubmissionForm();
@@ -62,7 +53,7 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
         return textErrorCoronaStorySubmissionFrom.getText();
     }
 
-    private void setFieldsCoronaVirusSubmissionForm(HashMap<Field, String> fields, ArrayList<Checkbox> checkboxes) {
+    private void setFieldsCoronaVirusSubmissionForm(Map<Field, String> fields, List<Checkbox> checkboxes) {
         for (Field key : fields.keySet()) {
             switch (key) {
                 case STORY:
@@ -71,6 +62,7 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
                 case NAME:
                     inputNameCoronaStorySubmissionForm.sendKeys(fields.get(key));
                     break;
+                default: throw new EnumConstantNotPresentException(Field.class, key.name());
             }
         }
         for (Checkbox key : checkboxes) {
@@ -81,12 +73,24 @@ public class CoronavirusStorySubmissionForm extends CoronaVirusPage {
                 case I_ACCEPT:
                     setCheckboxChecked(checkBoxesCoronaStorySubmissionForm.get(2));
                     break;
+                default: throw new EnumConstantNotPresentException(Checkbox.class, key.name());
             }
         }
     }
 
     private void clickOnButtonSubmitCoronaStorySubmissionForm() {
         buttonSubmitCoronaStorySubmissionForm.click();
+    }
+
+    public enum Field {
+        STORY,
+        NAME,
+        EMAIL
+    }
+
+    public enum Checkbox {
+        I_AM_OVER_SIXTEEN,
+        I_ACCEPT
     }
 
 }

@@ -36,7 +36,9 @@ public class NewsTitlesTest extends BaseTest {
                 "Biden warning for UK over post-Brexit trade deal");
         int index = 0;
         for (String title : getNewsPage().getTextForFirstSixSecondaryTitles()) {
-            assertEquals(title, expectedSecondaryTitles.get(index), "Text of news category one of secondary titles is NOT equal to expected");
+            assertEquals(title,
+                    expectedSecondaryTitles.get(index),
+                     String.format("\nSecondary title \n'%s' \nis NOT equal to \n'%s'\n", title, expectedSecondaryTitles.get(index)));
             index++;
         }
     }

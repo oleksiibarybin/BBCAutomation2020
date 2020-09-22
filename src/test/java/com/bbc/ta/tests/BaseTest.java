@@ -9,12 +9,11 @@ import org.openqa.selenium.WebDriver;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-public class BaseTest {
-    private WebDriver driver;
+public abstract class BaseTest {
 
     @BeforeClass
     public void testSetUp() {
-        driver = DriverManager.getDriver("chrome");
+        DriverManager.getDriver("chrome");
         getSignInPopUp().registrationPopUpHandler();
     }
 
@@ -23,24 +22,20 @@ public class BaseTest {
         DriverManager.quitDriver();
     }
 
-    public WebDriver getDriver() {
-        return driver;
-    }
-
     public SignInPopUp getSignInPopUp() {
-        return new SignInPopUp(getDriver());
+        return new SignInPopUp(DriverManager.getDriver());
     }
 
     public MainHorizontalMenu getMainHorizontalMenu() {
-        return new MainHorizontalMenu(getDriver());
+        return new MainHorizontalMenu(DriverManager.getDriver());
     }
 
     public NewsPage getNewsPage() {
-        return new NewsPage(getDriver());
+        return new NewsPage(DriverManager.getDriver());
     }
 
     public CoronavirusStorySubmissionForm getCoronavirusStorySubmissionForm() {
-        return new CoronavirusStorySubmissionForm(getDriver());
+        return new CoronavirusStorySubmissionForm(DriverManager.getDriver());
     }
 
 }

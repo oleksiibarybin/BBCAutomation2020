@@ -1,4 +1,4 @@
-package com.bbc.ta.pages;
+package com.bbc.ta.pages.common;
 
 import com.bbc.ta.pages.common.MainHorizontalMenu;
 import com.bbc.ta.pages.news_page.NewsHorizontalMenu;

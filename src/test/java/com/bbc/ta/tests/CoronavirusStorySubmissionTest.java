@@ -7,7 +7,12 @@ import org.testng.annotations.Test;
 
 import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
+import static com.bbc.ta.pages.news_page.CoronavirusStorySubmissionForm.Checkbox.I_ACCEPT;
+import static com.bbc.ta.pages.news_page.CoronavirusStorySubmissionForm.Checkbox.I_AM_OVER_SIXTEEN;
+import static com.bbc.ta.pages.news_page.CoronavirusStorySubmissionForm.Field.*;
 import static org.testng.Assert.assertEquals;
 
 public class CoronavirusStorySubmissionTest extends BaseTest {
@@ -16,8 +21,8 @@ public class CoronavirusStorySubmissionTest extends BaseTest {
     private static final String CORONA_SHARE_STORY_VALID_STORY = "I have some coronavirus story to tell";
     private static final String CORONA_SHARE_STORY_FORM_CHECKBOX_ERROR_TEXT = "must be accepted";
 
-    private final HashMap<CoronavirusStorySubmissionForm.Field, String> fieldsSubmissionFormValues = new HashMap<>();
-    private final ArrayList<CoronavirusStorySubmissionForm.Checkbox> checkboxesSubmissionFormValues = new ArrayList<>();
+    private final Map<CoronavirusStorySubmissionForm.Field, String> fieldsSubmissionFormValues = new HashMap<>();
+    private final List<CoronavirusStorySubmissionForm.Checkbox> checkboxesSubmissionFormValues = new ArrayList<>();
 
     @BeforeMethod
     private void navigateToSubmissionForm() {
@@ -34,10 +39,10 @@ public class CoronavirusStorySubmissionTest extends BaseTest {
     @Test
     public void checkCoronaVirusStorySubmissionFormResponseOnEmptyStoryTextArea() {
 
-        fieldsSubmissionFormValues.put(CoronavirusStorySubmissionForm.Field.NAME, CORONA_SHARE_STORY_VALID_NAME);
+        fieldsSubmissionFormValues.put(NAME, CORONA_SHARE_STORY_VALID_NAME);
 
-        checkboxesSubmissionFormValues.add(CoronavirusStorySubmissionForm.Checkbox.I_AM_OVER_SIXTEEN);
-        checkboxesSubmissionFormValues.add(CoronavirusStorySubmissionForm.Checkbox.I_ACCEPT);
+        checkboxesSubmissionFormValues.add(I_AM_OVER_SIXTEEN);
+        checkboxesSubmissionFormValues.add(I_ACCEPT);
 
         getCoronavirusStorySubmissionForm()
                 .submitCoronaStorySubmissionForm(
@@ -53,10 +58,10 @@ public class CoronavirusStorySubmissionTest extends BaseTest {
     @Test
     public void checkCoronaVirusStorySubmissionFormResponseOnEmptyNameInput() {
 
-        fieldsSubmissionFormValues.put(CoronavirusStorySubmissionForm.Field.STORY, CORONA_SHARE_STORY_VALID_STORY);
+        fieldsSubmissionFormValues.put(STORY, CORONA_SHARE_STORY_VALID_STORY);
 
-        checkboxesSubmissionFormValues.add(CoronavirusStorySubmissionForm.Checkbox.I_AM_OVER_SIXTEEN);
-        checkboxesSubmissionFormValues.add(CoronavirusStorySubmissionForm.Checkbox.I_ACCEPT);
+        checkboxesSubmissionFormValues.add(I_AM_OVER_SIXTEEN);
+        checkboxesSubmissionFormValues.add(I_ACCEPT);
 
         getCoronavirusStorySubmissionForm()
                 .submitCoronaStorySubmissionForm(
@@ -71,10 +76,10 @@ public class CoronavirusStorySubmissionTest extends BaseTest {
 
     @Test
     public void checkCoronaVirusStorySubmissionFormResponseOnUncheckedIAmOverSixteenCheckbox() {
-        fieldsSubmissionFormValues.put(CoronavirusStorySubmissionForm.Field.STORY, CORONA_SHARE_STORY_VALID_STORY);
-        fieldsSubmissionFormValues.put(CoronavirusStorySubmissionForm.Field.NAME, CORONA_SHARE_STORY_VALID_NAME);
+        fieldsSubmissionFormValues.put(STORY, CORONA_SHARE_STORY_VALID_STORY);
+        fieldsSubmissionFormValues.put(NAME, CORONA_SHARE_STORY_VALID_NAME);
 
-        checkboxesSubmissionFormValues.add(CoronavirusStorySubmissionForm.Checkbox.I_ACCEPT);
+        checkboxesSubmissionFormValues.add(I_ACCEPT);
 
         getCoronavirusStorySubmissionForm()
                 .submitCoronaStorySubmissionForm(
@@ -90,10 +95,10 @@ public class CoronavirusStorySubmissionTest extends BaseTest {
 
     @Test
     public void checkCoronaVirusStorySubmissionFormResponseOnUncheckedIAcceptTermsCheckbox() {
-        fieldsSubmissionFormValues.put(CoronavirusStorySubmissionForm.Field.STORY, CORONA_SHARE_STORY_VALID_STORY);
-        fieldsSubmissionFormValues.put(CoronavirusStorySubmissionForm.Field.NAME, CORONA_SHARE_STORY_VALID_NAME);
+        fieldsSubmissionFormValues.put(STORY, CORONA_SHARE_STORY_VALID_STORY);
+        fieldsSubmissionFormValues.put(NAME, CORONA_SHARE_STORY_VALID_NAME);
 
-        checkboxesSubmissionFormValues.add(CoronavirusStorySubmissionForm.Checkbox.I_AM_OVER_SIXTEEN);
+        checkboxesSubmissionFormValues.add(I_AM_OVER_SIXTEEN);
 
         getCoronavirusStorySubmissionForm()
                 .submitCoronaStorySubmissionForm(
