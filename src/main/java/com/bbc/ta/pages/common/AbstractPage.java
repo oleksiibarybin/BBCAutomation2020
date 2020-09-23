@@ -1,4 +1,4 @@
-package com.bbc.ta.pages;
+package com.bbc.ta.pages.common;
 
 import org.openqa.selenium.JavascriptExecutor;
 import org.openqa.selenium.WebDriver;
@@ -18,6 +18,11 @@ public abstract class AbstractPage {
     public void waitForElementVisibility(WebElement element) {
         WebDriverWait wait = new WebDriverWait(driver, 30);
         wait.until(ExpectedConditions.visibilityOf(element));
+    }
+
+    public void waitForElementEnabled(WebElement element) {
+        WebDriverWait wait = new WebDriverWait(driver, 30);
+        wait.until(ExpectedConditions.elementToBeClickable(element));
     }
 
     public void setCheckboxChecked(WebElement element) {

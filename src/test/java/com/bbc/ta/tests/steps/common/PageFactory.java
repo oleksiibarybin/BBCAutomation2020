@@ -8,6 +8,9 @@ import com.bbc.ta.pages.news_page.CoronaVirusPage;
 import com.bbc.ta.pages.news_page.CoronavirusStorySubmissionForm;
 import com.bbc.ta.pages.news_page.NewsHorizontalMenu;
 import com.bbc.ta.pages.news_page.NewsPage;
+import com.bbc.ta.pages.sport_page.FootballHorizontalMenu;
+import com.bbc.ta.pages.sport_page.FootballPage;
+import com.bbc.ta.pages.sport_page.SportHorizontalMenu;
 
 public class PageFactory {
 
@@ -29,6 +32,18 @@ public class PageFactory {
 
     public static NewsHorizontalMenu getNewsHorizontalMenu() {
         return new NewsHorizontalMenu(DriverManager.getDriver());
+    }
+
+    public static SportHorizontalMenu getSportHorizontalMenu() {
+        return new SportHorizontalMenu(DriverManager.getDriver());
+    }
+
+    public static FootballPage getFootballPage() {
+        return new FootballPage(DriverManager.getDriver());
+    }
+
+    public static FootballHorizontalMenu getFootballHorizontalMenu() {
+        return new FootballHorizontalMenu(DriverManager.getDriver());
     }
 
     public static CoronaVirusPage getCoronaVirusPage() {

@@ -9,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 public class NewsPageSteps {
 
     @When("user clicks on {string} category in mews page horizontal menu")
-    public void clickOnCoronaVitusCategory(String category) {
+    public void clickOnNewsPageHorizontalMenuCategory(String category) {
         PageFactory
                 .getNewsHorizontalMenu()
                 .clickOnMenuCategoryInNewsPageMenu(category);
