@@ -35,7 +35,8 @@ public class MainHorizontalMenu extends HomePage {
                 linkSportCategory.click();
                 break;
             }
-            default: throw new NotImplementedException(String.format("Category %s is not implemented", category));
+            default:
+                throw new NotImplementedException(String.format("Category %s is not implemented", category));
         }
     }
 }

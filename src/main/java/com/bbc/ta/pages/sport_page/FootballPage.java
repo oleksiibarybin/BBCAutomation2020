@@ -97,5 +97,4 @@ public class FootballPage extends SportPage {
         return textCommandsMatchScores.get(1).getText();
     }
 
-
 }

@@ -24,7 +24,8 @@ public class FootballHorizontalMenu extends SportPage {
                 scoresFixturesCategory.click();
                 break;
             }
-            default: throw new NotImplementedException(String.format("Category %s is not implemented", category));
+            default:
+                throw new NotImplementedException(String.format("Category %s is not implemented", category));
         }
     }
 }

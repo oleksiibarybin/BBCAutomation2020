@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
 import org.openqa.selenium.support.FindBy;
 
-public class SportHorizontalMenu extends SportPage{
+public class SportHorizontalMenu extends SportPage {
 
     @FindBy(xpath = "//div[@role='menubar']//a[@data-stat-link='/sport/football']")
     private WebElement footballCategory;
@@ -20,7 +20,8 @@ public class SportHorizontalMenu extends SportPage{
                 footballCategory.click();
                 break;
             }
-            default: throw new NotImplementedException(String.format("Category %s is not implemented", category));
+            default:
+                throw new NotImplementedException(String.format("Category %s is not implemented", category));
         }
     }
 }

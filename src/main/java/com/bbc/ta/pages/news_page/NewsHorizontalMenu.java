@@ -20,7 +20,8 @@ public class NewsHorizontalMenu extends NewsPage {
                 coronavirusCategory.click();
                 break;
             }
-            default: throw new NotImplementedException(String.format("Category %s is not implemented", category));
+            default:
+                throw new NotImplementedException(String.format("Category %s is not implemented", category));
         }
     }
 

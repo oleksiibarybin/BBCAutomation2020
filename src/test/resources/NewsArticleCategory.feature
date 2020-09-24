@@ -6,5 +6,6 @@ Feature: As a user I want to open all news related to article category so that I
     And declines sign in proposition on pop up window
 
   Scenario: News headline article category on category page should be equal to news headline article category on news page
+    And user memorizes news headline article category
     And clicks on news headline article category link
-    Then headline article category on category page equal to headline article category on news page
+    Then sees that headline article category on category page equal to headline article category on news page

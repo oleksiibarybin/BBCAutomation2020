@@ -5,7 +5,7 @@ import org.openqa.selenium.WebDriver;
 
 public class SportPage extends AbstractPage {
 
-    public SportPage (WebDriver driver) {
+    public SportPage(WebDriver driver) {
         super(driver);
     }
 }
