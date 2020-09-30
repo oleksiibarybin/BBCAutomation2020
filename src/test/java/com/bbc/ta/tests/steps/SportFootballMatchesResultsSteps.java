@@ -1,6 +1,6 @@
 package com.bbc.ta.tests.steps;
 
-import com.bbc.ta.tests.steps.common.PageFactory;
+import com.bbc.ta.tests.utils.PageFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -31,10 +31,13 @@ public class SportFootballMatchesResultsSteps {
         expectedMatchResults.add(expectedFirstCommandScore);
         expectedMatchResults.add(expectedSecondCommandScore);
 
-        List<String> actualMatchResults = PageFactory.getFootballPage().getMatchResults(page);
+        List<String> actualMatchResults = PageFactory
+                                                .getFootballPage()
+                                                .getMatchResults(page);
 
         assertThat(actualMatchResults)
-                .as("\nFor items %s \nvalues %s \nis NOT equal to expected \n%s", itemsMatchResults, expectedMatchResults, actualMatchResults)
+                .as("\nFor items %s \nvalues %s \nis NOT equal to expected \n%s",
+                        itemsMatchResults, expectedMatchResults, actualMatchResults)
                 .isEqualTo(expectedMatchResults);
     }
 

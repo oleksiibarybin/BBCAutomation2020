@@ -59,10 +59,10 @@ public class FootballPage extends SportPage {
         switch (page) {
             case "last_month_match":
                 waitForElementVisibility(blockLastDayFromMonthMatchesResults);
-                return setMatchResults();
+                return getMatchResults();
             case "event_header":
                 waitForElementVisibility(blockMatchResultsDetails);
-                return setMatchResults();
+                return getMatchResults();
             default:
                 throw new NotImplementedException(String.format("Page %s is not implemented", page));
         }
@@ -72,7 +72,7 @@ public class FootballPage extends SportPage {
         linkLastMatchResultsDetails.click();
     }
 
-    private List<String> setMatchResults() {
+    private List<String> getMatchResults() {
         List<String> matchResults = new ArrayList<>();
         matchResults.add(getTextFirstCommandName());
         matchResults.add(getTextSecondCommandName());

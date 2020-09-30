@@ -1,4 +1,4 @@
-package com.bbc.ta.tests.steps.common;
+package com.bbc.ta.tests.utils;
 
 import com.bbc.ta.driver.DriverManager;
 import com.bbc.ta.pages.HomePage;

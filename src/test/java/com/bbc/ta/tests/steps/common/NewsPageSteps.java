@@ -1,5 +1,6 @@
 package com.bbc.ta.tests.steps.common;
 
+import com.bbc.ta.tests.utils.PageFactory;
 import io.cucumber.java.en.Then;
 import io.cucumber.java.en.When;
 
@@ -8,7 +9,7 @@ import static org.assertj.core.api.Assertions.assertThat;
 
 public class NewsPageSteps {
 
-    String newsHeadLineArticleCategory;
+    private String newsHeadLineArticleCategory;
 
     @When("user clicks on {string} category in mews page horizontal menu")
     public void clickOnNewsPageHorizontalMenuCategory(String category) {
@@ -40,12 +41,16 @@ public class NewsPageSteps {
 
     @When("user memorizes news headline article category")
     public void saveNewsHeadlineArticleCategoryInClassVariable() {
-        newsHeadLineArticleCategory = PageFactory.getNewsPage().getTextNewsHeadLineArticleCategory();
+        newsHeadLineArticleCategory = PageFactory
+                                        .getNewsPage()
+                                        .getTextNewsHeadLineArticleCategory();
     }
 
     @Then("sees that headline article category on category page equal to headline article category on news page")
     public void checkHeadlineArticleCategoryOnCategoryPageEqualToHeadlineArticleCategoryOnNewsPage() {
-        assertThat(PageFactory.getNewsPage().getTextCategoryHeadLineArticleCategory())
+        assertThat(PageFactory
+                        .getNewsPage()
+                        .getTextCategoryHeadLineArticleCategory())
                 .as("Text of headline article category on category page is NOT equal to text headline article category on news page")
                 .isEqualTo(newsHeadLineArticleCategory);
     }
